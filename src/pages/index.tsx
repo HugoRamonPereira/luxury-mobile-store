@@ -1,17 +1,14 @@
 import React from 'react';
 import Head from 'next/head';
-import { Heebo } from '@next/font/google';
-import { styled } from './styles';
+// import { Heebo } from '@next/font/google';
+import { HomeContainer, Product } from './styles/pages/home';
+import Image from 'next/image';
+// const heebo = Heebo({ subsets: ['latin'] });
 
-const heebo = Heebo({ subsets: ['latin'] });
-const Button = styled('button', {
-  backgroundColor: '$blue500',
-  borderRadius: 5,
-  border: 'none',
-  cursor: 'pointer',
-  padding: '10px 15px',
-  color: '$gray100'
-});
+import SamsungS22Ultra from '../assets/phones/Samsung-S22-Ultra-White.webp';
+import AppleIPhone14ProMax from '../assets/phones/Apple-Iphone-14ProMax.webp';
+import GooglePixel7 from '../assets/phones/GooglePixel7.png';
+import Xiaomi12SUltra from '../assets/phones/Xiaomi-12SUltra.png';
 
 export default function Home() {
   return (
@@ -22,8 +19,39 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className={heebo.className}>Luxury Mobile Store</h1>
-      <Button className={heebo.className}>Buy Phone</Button>
+      <HomeContainer>
+        <Product>
+          <Image src={SamsungS22Ultra} width={520} height={400} alt='Samsung Phone' style={{ objectFit: 'cover' }} />
+          <footer>
+            <strong>Samsung Galaxy S22 Ultra</strong>
+            <span>R$ 7.000,00</span>
+          </footer>
+        </Product>
+
+        <Product>
+          <Image src={AppleIPhone14ProMax} width={480} height={310} alt='Apple iPhone' style={{ objectFit: 'cover' }} />
+          <footer>
+            <strong>Apple iPhone 14 Pro Max</strong>
+            <span>R$ 7.500,00</span>
+          </footer>
+        </Product>
+
+        <Product>
+          <Image src={GooglePixel7} width={420} height={350} alt='Google Phone' style={{ objectFit: 'cover' }} />
+          <footer>
+            <strong>Google Pixel 7 Pro</strong>
+            <span>R$ 6.000,00</span>
+          </footer>
+        </Product>
+
+        <Product>
+          <Image src={Xiaomi12SUltra} width={400} height={385} alt='Xiaomi Phone' style={{ objectFit: 'cover' }} />
+          <footer>
+            <strong>Xiaomi 12S Ultra</strong>
+            <span>R$ 6.500,00</span>
+          </footer>
+        </Product>
+      </HomeContainer>
     </>
   );
 }
